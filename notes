@@ -1,0 +1,135 @@
+// 11000 duplicate key error collection: BricksForDocsDev.users index: email_1 dup key: { : \"admin@db.com\" }"
+// 400 Bad Request
+// 401 Unauthorized
+// 404 Not Found
+// 500 Internal Server Error
+
+// generate-password is for generating a random password with specifications
+
+// npm install --save short-unique-id to genrate a random unique id with specific length
+
+
+// {
+//     "day":"Wednesday",
+//     "from":"2017-12-20T10:00:00.000Z",
+//     "to":"2017-12-20T12:00:00.000Z"
+// },
+// {
+//     "day":"Wednesday",
+//     "from":"2017-12-20T13:00:00.000Z",
+//     "to":"2017-12-20T18:00:00.000Z"
+// }
+
+200 (OK) - if an existing resource has been updated
+201 (created) - if a new resource is created
+202 (accepted) - accepted for processing but not been completed (Async processing)
+
+301 (Moved Permanently) - the resource URI has been updated
+303 (See Other) - e.g. load balancing
+
+400 (bad request) - indicates a bad request
+404 (not found) - the resource does not exits
+406 (not acceptable) - the server does not support the required representation
+409 (conflict) - general conflict     
+412 (Precondition Failed) e.g. conflict by performing conditional update
+415 (unsupported media type) - received representation is not supported
+
+500 (internal server error) - generic error response
+503 (Service Unavailable) - The server is currently unable to handle the request
+
+
+GET
+- retrieve a representation
+- retrieve a representation if modified (caching)
+200 (OK) - the representation is sent in the response
+
+204 (no content) - the resource has an empty representation
+
+301 (Moved Permanently) - the resource URI has been updated
+
+303 (See Other) - e.g. load balancing
+
+304 (not modified) - the resource has not been modified (caching)
+
+
+400 (bad request) - indicates a bad request (e.g. wrong parameter)
+
+404 (not found) - the resource does not exits
+
+406 (not acceptable) - the server does not support the required representation
+
+500 (internal server error) - generic error response
+
+503 (Service Unavailable) - The server is currently unable to handle the request
+
+=======================================================================================
+
+POST
+- create a resource with server-side managed (auto generated) instance id
+- create a sub-resource
+- partial update of a resource
+- partial update a resource if not modified (optimistic locking)
+
+200 (OK) - if an existing resource has been updated---------------------------------------
+201 (created) - if a new resource is created
+202 (accepted) - accepted for processing but not been completed (Async processing)
+
+301 (Moved Permanently) - the resource URI has been updated
+303 (See Other) - e.g. load balancing
+
+400 (bad request) - indicates a bad request--------------------------------------------------
+404 (not found) - the resource does not exits
+406 (not acceptable) - the server does not support the required representation
+409 (conflict) - general conflict-------------------------------------------------------------
+412 (Precondition Failed) e.g. conflict by performing conditional update
+415 (unsupported media type) -received representation is not supported
+
+500 (internal server error) - generic error response
+503 (Service Unavailable) - The server is currently unable to handle the request
+
+=======================================================================================
+DELETE
+- delete the resource
+200 (OK) - the resource has been deleted
+
+301 (Moved Permanently) - the resource URI has been updated
+303 (See Other) - e.g. load balancing
+
+400 (bad request) - indicates a bad request-------------------------------------------------------------
+404 (not found) - the resource does not exits
+409 (conflict) - general conflict
+
+500 (internal server error) - generic error response
+503 (Service Unavailable) - The server is currently unable to handle the request
+
+======================================================================================
+
+PUT
+- create a resource with client-side managed instance id
+- update a resource by replacing
+- update a resource by replacing if not modified (optimistic locking)
+200 (OK) - if an existing resource has been updated
+201 (created) - if a new resource is created
+
+301 (Moved Permanently) - the resource URI has been updated
+
+303 (See Other) - e.g. load balancing
+
+400 (bad request) - indicates a bad request-----------------------------------------------------------------
+
+404 (not found) - the resource does not exits
+
+406 (not acceptable) - the server does not support the required representation
+
+409 (conflict) - general conflict
+
+412 (Precondition Failed) e.g. conflict by performing conditional update
+
+415 (unsupported media type) - received representation is not supported
+
+500 (internal server error) - genericerror response
+
+503 (Service Unavailable) - The server is currently unable to handle the request
+
+
+gitk --all

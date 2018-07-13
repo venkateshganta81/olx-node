@@ -1,25 +1,36 @@
 var express = require('express');
 var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+let chalk = require('chalk');
 
 var app = express();
 
+app.use(logger('dev'));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(cookieParser());
 
-app.use(express.static('dist', { index: '/index.html' }));
+let routesV1_0 = require('./server/routes/routes.v1.0');
 
-app.listen(3000);
+require('./server/config/libs/mongoose');//initializing mongoose
 
-app.use(function (req, res, next) {
+let config = require('./server/config/config');
 
-    console.log(req.url);
+app.use('/api/v1.0', routesV1_0);
 
-    if (/^\/v1.0\//.test(req.url)) {
-        next();
-    } else {
-        console.log('index');
-
-        res.sendFile(__dirname + '/dist/index.html');
-    }
-
+app.post('/callback', function (req, res) {
+    console.log(req);
 });
+
+app.use('/apidocs', express.static('apidocs'));
+
+app.listen(config.port);
+
+console.log(chalk.green('Server started on port : ' + config.port + " with " + process.env.NODE_ENV + ' mode'));
+
+module.exports = app;
