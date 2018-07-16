@@ -1,11 +1,10 @@
 let config = require('../../../config/config');
 let UserService = require('../users/service');
-let utils = require('./../../../common/utils');
 var jwt = require('jsonwebtoken');
 
 
 let isUserLogin = (req,res,next)=>{
-    let token = req.headers['x-access-token'] || req.cookies['token'];
+    let token = req.headers.token || req.cookies['token'];
     //   let token = ;
     if(token){
         let decodedData;

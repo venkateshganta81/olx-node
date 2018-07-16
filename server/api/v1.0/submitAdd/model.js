@@ -1,16 +1,16 @@
 let mongoose = require('mongoose');
 let ObjectID = mongoose.Schema.ObjectId;
 
-let Add = new mongoose.Schema({
+let AddDetails = new mongoose.Schema({
     title : String,
+    description: String,
     category : String,
     price : Number,
-    description : String,
-    photos : [],
-    name : String,
-    mobile : Number,
-    city : String
+    creatorId : ObjectID
 })
 
-let AddModel = mongoose.model('Adds',Add);
+
+
+
+let AddModel = mongoose.model('Adds',AddDetails);
 module.exports = AddModel;

@@ -2,14 +2,16 @@ let express = require('express');
 
 let router = express.Router();
 
-// let authMiddleware = require('./../middlewares/auth');
 
-let AddsController = require('./controller');
-
-// let validationsMiddleware = require('../middlewares/validations');
+let AddController = require('./controller')
 
 
-router.post('/createAdd',AddsController.submitAdd);
+router.post('/createAdd', AddController.createAdd  );
+
+
+
+
+
 
 
 module.exports = router;

@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -17,7 +16,7 @@ app.use(cookieParser());
 
 let routesV1_0 = require('./server/routes/routes.v1.0');
 
-require('./server/config/libs/mongoose');//initializing mongoose
+// require('./server/config/libs/mongoose');//initializing mongoose
 
 let config = require('./server/config/config');
 /* CORS ISSUE */
@@ -49,6 +48,6 @@ app.use('/v1', routesV1_0);
 
 app.listen(config.port);
 
-console.log(chalk.green('Server started on port : ' + config.port + " with " + process.env.NODE_ENV + ' mode'));
+console.log(chalk.green('Server started on port : ' + config.port )); //+ " with " + process.env.NODE_ENV + ' mode'
 
 module.exports = app;
